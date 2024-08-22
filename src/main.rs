@@ -2,34 +2,41 @@ use std::fs::{File, OpenOptions};
 use std::io::{Read, Write};
 
 fn main() {
-    let res: i32 =square(5);
-    print!("{res}");
+    /* let res: i32 = _square(5);
+    println!("{res}"); */
+    /* ________________________________________________________ */
 
-    let _file_path = "my_new_file.txt";
+    /* let _file_path = "my_new_file.txt";
     let _initial_content = "Hello, world!\nThis is a new file.";
 
-    // if let Err(error) = create_file_with_content(file_path, initial_content) {
-    //     eprintln!("Error creating file: {}", error);
-    // } else {
-    //     println!("File created successfully with initial content.");
-    // }
+    if let Err(error) = create_file_with_content(file_path, initial_content) {
+        eprintln!("Error creating file: {}", error);
+    } else {
+        println!("File created successfully with initial content.");
+    }
 
     // Read
-    // let content = read_file(file_path);
-    // println!("File content: {}", content);
+    let content = read_file(file_path);
+    println!("File content: {}", content);
 
     // Write
-    // write_to_file(file_path, "This is new content.");
+    write_to_file(file_path, "This is new content.");
 
     // Append
-    // append_to_file(file_path, "\n and this is appended content.");
+    append_to_file(file_path, "\n and this is appended content.");
 
     // Delete
-    // delete_file(file_path);
+    delete_file(file_path); */
+
+    /* ________________________________________________________ */
+    
+    /* _for_study();
+    _vec_study(); */
+    /* ________________________________________________________ */
 
 }
 
-fn square(num: i32) -> i32 {
+fn _square(num: i32) -> i32 {
     // return num * num
     num * num
 }
@@ -64,7 +71,56 @@ fn _append_to_file(file_path: &str, content: &str) {
     file.write_all(content.as_bytes()).expect("Failed to append to file");
 }
 
-// 파일 삭제 함수 (주의: 신중하게 사용해야 합니다.)
 fn _delete_file(file_path: &str) {
     std::fs::remove_file(file_path).expect("Failed to delete file");
 }
+
+fn _for_study(){
+    /*  Dereferencing: *(&t) vs Double Reference: &&t
+    */
+    let numbers = [1,2,3,4,5];
+    for number in &numbers {
+        println!("{}", *number);
+    }
+
+    println!(" ");
+
+    let pnumbers = [1,2,3,4,5];
+    for &number in &pnumbers {
+        println!("{}", number);
+    }
+}
+
+fn _vec_study() {
+    
+    let mut v = vec![10, 20, 30, 40];
+
+    println!("Original vector: {:?}", v);
+
+    // 벡터에 요소 추가
+    v.push(50);
+    println!("After push: {:?}", v);
+
+    // 벡터에서 마지막 요소 제거
+    v.pop();
+    println!("After pop: {:?}", v);
+
+    // 벡터의 세 번째 요소에 접근
+    let third = v[2];
+    println!("The third element is: {}", third);
+
+    if let Some(value) = v.get(2) {
+        println!("The third element is {}", value); // 30
+    }
+
+    // 벡터의 길이 확인
+    println!("Vector length: {}", v.len());
+
+    for i in &v {
+        println!("{}", i);
+    }
+
+}
+
+
+
